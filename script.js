@@ -6,15 +6,17 @@ const rollInput = studentForm['roll'];
 
 const students = JSON.parse(localStorage.getItem("students")) || [];
 
-const addStudent = (name,roll) => {
+const addStudent = (name,roll,presentButton,absentButton) => {
   students.push({
     name,
-    roll
+    roll,
+    presentButton,
+    absentButton
   });
 
   localStorage.setItem("students", JSON.stringify(students));
 
-  return { name, roll };
+  return { name, roll,presentButton,absentButton};
 };
 
 const createStudentElement = ({name,roll}) =>{
