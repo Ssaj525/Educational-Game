@@ -1,99 +1,22 @@
-const studentForm = document.getElementById("studentForm");
-const studentsContainer = document.querySelector(".students");
-const nameInput = studentForm['name'];
-const rollInput = studentForm['roll'];
+document.addEventListener("DOMContentLoaded", function() {
+    const startButton = document.querySelector(".sbtn");
+    const startScreen = document.querySelector(".start-screen");
+    const mainScreen = document.querySelector(".main-screen");
+    const main = document.querySelector(".main");
 
-
-const students = JSON.parse(localStorage.getItem("students")) || [];
-
-const addStudent = (name,roll,presentButton,absentButton) => {
-  students.push({
-    name,
-    roll,
-    presentButton,
-    absentButton
-  });
-
-  localStorage.setItem("students", JSON.stringify(students));
-
-  return { name, roll,presentButton,absentButton};
-};
-
-const createStudentElement = ({name,roll}) =>{
-  const studentDiv = document.createElement('tr');
-  const studentName = document.createElement('td');
-  const studentRoll = document.createElement('td');
-  const actionColumn = document.createElement('td');
-  const attendColumn = document.createElement('td');
-  
-  studentName.innerText = name;
-  studentRoll.innerText = roll;
-  
-  studentDiv.append(studentName, studentRoll, actionColumn, attendColumn);
-  studentsContainer.appendChild(studentDiv);
-
-  var editButton = document.createElement('button');
-    editButton.innerText = "Edit";
-
-    editButton.addEventListener('click', function(){
-        var updatedName = prompt('Edit name:', name);
-        var updatedage = prompt('Edit sem:', roll);
-
-        if(updatedName !== null && 
-            updatedage !== null){
-                studentName.innerText = updatedName;
-                studentRoll.innerText = updatedage;
-        }
+    startButton.addEventListener("touchstart", function() {
+        startButton.style.transform = "scale(0.8)";
     });
 
-    var deleteButton = document.createElement('button');
-    deleteButton.innerText = "delete";
-    deleteButton.addEventListener('click', function(){
-      studentsContainer.removeChild(studentDiv);
+    startButton.addEventListener("touchend", function() {
+        startButton.style.transform = "scale(1)";
+        startScreen.style.display = "none";
+        mainScreen.style.display = "flex";
+
+        // Hide mainScreen after 3 seconds
+        setTimeout(function() {
+            mainScreen.style.display = "none";
+            main.style.display = "flex";
+        }, 3000);
     });
-    actionColumn.append(editButton, deleteButton);
-
-    var presentButton = document.createElement('button');
-    presentButton.innerText = "P";
-    presentButton.addEventListener('click', function(){
-      presentButton.innerHTML = "Present";
-      presentButton.style.border = "none";
-      presentButton.style.background = "green";
-      presentButton.style.color = "#fff";
-      presentButton.style.borderRadius = 10 + "px";
-      presentButton.style.padding = 5 + "px";
-      absentButton.disabled = true;
-      absentButton.remove();
-    });
-
-    var absentButton = document.createElement('button');
-    absentButton.innerText = "A";
-    absentButton.addEventListener('click', function(){
-      absentButton.innerHTML = "Absent";
-      absentButton.style.border = "none";
-      absentButton.style.background = "red";
-      absentButton.style.color = "#fff";
-      absentButton.style.borderRadius = 10 + "px";
-      absentButton.style.padding = 5 + "px";
-      presentButton.disabled = true;
-      presentButton.remove();
-    });
-
-    attendColumn.append(presentButton, absentButton);
-
-  return studentDiv;
-};
-
-students.forEach(createStudentElement);
-
-studentForm.onsubmit = (e) =>{
-  e.preventDefault();
-  const newStudent = addStudent(
-    nameInput.value,
-    rollInput.value
-  );
-  createStudentElement(newStudent)
-
-  nameInput.value = "";
-  rollInput.value = "";
-};
+});

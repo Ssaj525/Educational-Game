@@ -1,27 +1,58 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Attend</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="Stylesheet.css">
-    </head>
-    <body>
-        <form id="studentForm">
-            <input type="text" placeholder="Enter your name" name="name" required><br>
-            <input type="number" placeholder="Enter Roll No" name="roll" required><br>
-            <button>Add Student</button>
-          </form>
-          <table class="students">
-            <tr>
-                <th>Name</th>
-                <th>Roll</th>
-                <th>Action</th>
-                <th>Attendance</th>
-            </tr>
-          </table>
-        <script src="script.js"></script>
-    </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MathGame</title>
+    <link rel="stylesheet" href="stylesheet.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+<body>
+    <div class="start-screen">
+        <div class="box1">
+            <h1>Educational Game</h1>
+            <div class="bar">
+                <div class="blue"></div>
+                <div class="red"></div>
+            </div>
+        </div>
+        <div class="w-msg">
+            <h2>Welcome!</h2>
+            <h3>By continuing to play, <br>you confirm you <br> agree to our <span>Terms</span> <br> and <span>Privacy Policy.</span> <br>You also confirm you <br>are over 10 years old.</h3>
+        </div>
+       <div class="sbtn">
+        Continue
+       </div>
+    </div>
+    <div class="main-screen">
+        <div class="box1">
+            <h1>Educational Game</h1>
+            <div class="bar">
+                <div class="blue"></div>
+                <div class="red"></div>
+            </div>
+        </div>
+    </div>
+    <div class="main">
+        <div class="nav">
+            <div class="settings">
+                <i class="ri-settings-2-fill"></i>
+            </div>
+            <div class="box1">
+                <h1>Educational Game</h1>
+                <div class="bar">
+                    <div class="blue"></div>
+                    <div class="red"></div>
+                </div>
+            </div>
+        </div>
+        <div class="game-bx">
+            <div class="overlay">
+                <a href="Game-1.html"><h2>Math <br> Quiz</h2></a>
+            </div>
+            <img src="./assets/game1.png" alt="">
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
 </html>
