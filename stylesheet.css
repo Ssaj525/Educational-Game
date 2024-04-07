@@ -86,7 +86,11 @@
   height: 100%;
   background-color: crimson;
 }
-* body .main .game-bx {
+* body .main .game-container {
+  width: 100%;
+  height: 100%;
+}
+* body .main .game-container .game-bx {
   width: 90%;
   margin-left: 5%;
   height: 180px;
@@ -97,14 +101,14 @@
   margin-bottom: 5%;
   outline: none;
 }
-* body .main .game-bx img {
+* body .main .game-container .game-bx img {
   width: 100%;
   height: 100%;
   outline: none;
   -o-object-fit: cover;
      object-fit: cover;
 }
-* body .main .game-bx .overlay {
+* body .main .game-container .game-bx .overlay {
   width: 100%;
   height: 100%;
   outline: none;
@@ -116,10 +120,10 @@
   font-size: 6vw;
   position: absolute;
 }
-* body .main .game-bx .overlay a {
+* body .main .game-container .game-bx .overlay a {
   text-decoration: none;
 }
-* body .main .game-bx .overlay a h2 {
+* body .main .game-container .game-bx .overlay a h2 {
   color: #fff;
 }
 * body .main-screen {
