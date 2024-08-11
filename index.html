@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SGPA Report Generator</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <div class="container w-full h-screen overflow-hidden bg-slate-100 overflow-y-auto">
+        <h1 class="text-center uppercase font-semibold text-lg my-3">SGPA Report Generator</h1>
+        <form id="studentForm w-full max-h-auto bg-red-500 rounded-full px-2">
+          <input type="text" class="nof-stud block my-2 w-full placeholder-gray-400/70 dark:placeholder-gray-500 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:focus:border-blue-300" placeholder="No.of student">
+            <div id="studentContainer" class="bg-white px-2 py-4"></div>
+            <button type="button" class="w-10 h-10 object-cover fixed top-[50%] translate-y-[-50%] right-2" onclick="addStudent()"><svg class="w-full h-full object-cover" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle opacity="0.5" cx="12" cy="12" r="10" stroke="#1C274C" stroke-width="1.5"/>
+              <path d="M15 12L12 12M12 12L9 12M12 12L12 9M12 12L12 15" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"/>
+              </svg></button>
+            <button type="button" class="w-[90%] h-12 bg-teal-700 text-white font-semibold rounded-lg text-lg ml-[5%] my-2" onclick="generateReport()">Generate Report</button>
+            <button type="button" class="w-[90%] h-12 bg-red-600 text-white font-semibold rounded-lg text-lg ml-[5%] my-2" onclick="clearData()">Clear Student Data</button>
+            <div class="p-4"></div>
+        </form>
+         <div class="overflow-x-auto">
+        <table class="min-w-full divide-y-2 divide-gray-200 bg-white text-sm" style="display:none;" id="reportTable">
+            <thead class="ltr:text-left rtl:text-right">
+                <tr>
+                    <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">Student Name</th>
+                    <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">Subject 1</th>
+                    <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">Subject 2</th>
+                    <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">Subject 3</th>
+                    <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">Subject 4</th>
+                    <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">Subject 5</th>
+                    <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">Lab 1</th>
+                    <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">Lab 2</th>
+                    <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">Lab 3</th>
+                    <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">SGPA</th>
+                    <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">Rank</th>
+                </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-200"></tbody>
+        </table>
+         </div>
+        <button id="exportButton" class="w-[90%] h-12 bg-teal-600 text-white font-semibold rounded-lg text-lg ml-[5%] my-2" style="display:none;" onclick="exportToExcel()">Export to Excel</button>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

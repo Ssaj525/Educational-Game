@@ -1,0 +1,46 @@
+@font-face {
+    font-family: 'Gilroy';
+    src: url('./assets/Gilroy-Medium.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.hidden-groups {
+    display: none;
+}
+
+.gr-slider.expanded {
+    height: auto;
+    transition: height 0.3s ease;
+}
+
+.admin-group {
+    transition: all 5s ease-in;
+    overflow: hidden;
+}
+.i-active {
+    width: 20%;
+    height: 100%;
+    border-radius: 0.5rem; /* rounded-lg */
+    background-color: #334155;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.i-active::before {
+    content: "";
+    width: 2rem; /* 8px converted to rem assuming a root font size of 16px */
+    height: 0.25rem; /* 1px converted to rem */
+    background-color: #12C6B0;
+    border-top-left-radius: 0.5rem; /* Same rounded-t-xl effect */
+    border-top-right-radius: 0.5rem; /* Same rounded-t-xl effect */
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: width 0.3s ease, height 0.3s ease, left 0.3s ease;
+}
